@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using NetCoreContactMgrApi.Models;
 using NetCoreContactMgrApi.Repo;
+using Bowozer.Latihan.Moja;
 
 namespace NetCoreContactMgrApi.Controllers
 {
@@ -18,6 +19,14 @@ namespace NetCoreContactMgrApi.Controllers
         [HttpGet]
         public IEnumerable<Contact> Get()
         {
+            var mojacko = new Mojacko()
+            {
+                Shape = "Kotak",
+                Eye = "Besar",
+                Colour = "Kuning"
+            };
+
+            mojacko.Move();
             return _contactRepo.ContactList;
         }
 
@@ -62,7 +71,7 @@ namespace NetCoreContactMgrApi.Controllers
             {
                 throw new InvalidOperationException("Contact is not found");
             }
-            
+
             _contactRepo.ContactList.Remove(contact);
         }
     }

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Bowozer.Latihan.Moja</id>
+    <version>1.0.0</version>
+    <authors>Bowozer.Latihan.Moja</authors>
+    <owners>Bowozer.Latihan.Moja</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Bowozer.Latihan.Moja</description>
+    <tags></tags>
+    <dependencies>
+      <group targetFramework=".NETCoreApp1.1">
+        <dependency id="Microsoft.NETCore.App" version="[1.1.0, )" />
+        <dependency id="System.Threading.Thread" version="[4.3.0, )" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
