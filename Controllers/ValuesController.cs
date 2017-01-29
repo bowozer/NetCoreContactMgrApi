@@ -27,18 +27,21 @@ namespace NetCoreContactMgrApi.Controllers
         [HttpPost]
         public void Post([FromBody]string value)
         {
+            Console.WriteLine("Received POST value: " + value);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
+            Console.WriteLine("Received PUT id: {0}; value {1}", id, value);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            Console.WriteLine("Received PUT id: " + id);
         }
     }
 }
