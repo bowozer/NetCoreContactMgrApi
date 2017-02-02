@@ -18,7 +18,12 @@
         "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
         "Newtonsoft.Json": "9.0.1",
         "Microsoft.AspNetCore.Cors": "1.1.0",
-        "bowozer.latihan.moja": "1.0.0"
+        "bowozer.latihan.moja": "1.0.0",
+        "Microsoft.AspNetCore.Diagnostics": "1.1.0",
+        // part of identity server
+        "IdentityServer4": "1.0.0",
+        // part of identity client (API)
+        "IdentityServer4.AccessTokenValidation": "1.0.5"
     },
 
     "tools": {
