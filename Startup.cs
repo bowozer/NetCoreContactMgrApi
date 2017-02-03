@@ -42,6 +42,12 @@ namespace NetCoreContactMgrApi
                 });
             });
 
+            // IdentityServer4 service, Part of identiy server
+            services.AddIdentityServer()
+                .AddTemporarySigningCredential()
+                .AddInMemoryApiResources(IdentityServerConfig.GetApiResources())
+                .AddInMemoryClients(IdentityServerConfig.GetClients());
+
             // Add framework services.
             services.AddMvc();
         }
@@ -49,6 +55,12 @@ namespace NetCoreContactMgrApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            // IdentityServer4: Part of identiy server 
+            loggerFactory.AddConsole(LogLevel.Debug);
+            app.UseDeveloperExceptionPage();
+
+            app.UseIdentityServer();
+
             // Enable CORS to all controllers
             // need to put at the most top because this is sending headers.
             if (env.IsDevelopment())
@@ -63,6 +75,17 @@ namespace NetCoreContactMgrApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            // part of identity client (the API)
+            app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions()
+            {
+                // For this code, the identity server and the API is in the same server.
+                // API server baseurl isn't defined thus using default baseUrl localhost:5000
+                Authority = "http://localhost:5000",
+                RequireHttpsMetadata = false,
+
+                ApiName = "api1"
+            });
+            
             app.UseMvc();
         }
     }
